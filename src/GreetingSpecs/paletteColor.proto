@@ -1,0 +1,42 @@
+﻿// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package google.protobuf;
+option csharp_namespace = "Google.Protobuf.GreetingSpecs";
+
+// The greeting service definition.
+service PaletteSvc {
+  // Sends a greeting
+  rpc GetColor (GetColorRequest) returns (GetColorResponse) {}
+}
+
+enum Color {
+	COLOR_RED = 0;
+	COLOR_GREEN = 5;
+	COLOR_BLUE = 1234;
+}
+
+// The request message containing the user's name.
+message GetColorRequest {
+  Color TheColor = 1;
+}
+
+// The response message containing the greetings
+message GetColorResponse {
+  string HEXA = 1;
+}
+
+
