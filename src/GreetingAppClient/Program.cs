@@ -23,15 +23,18 @@ namespace GreetingAppClient
             CancellationToken ct = CancellationToken.None;
             var cl = new CallOptions(cancellationToken: ct, deadline: DateTime.UtcNow.AddMinutes(2));
 
-            for (int i = 0; i < 2 * 100 * 100; i++)
+            for (int i = 0; i < 2 * 100 * 10; i++)
             {
                 HelloRequest rq = new HelloRequest
                 {
-                    Name = $"hello{i}"
+                    Name = $"hello {i}"
                 };
                 var rs = await client.SayHelloAsync(rq, cl);
                 Log($"SayHelloAsync {rs.Message}");
             }
+
+            Console.WriteLine("Lista já populada.");
+            Console.ReadKey();
 
             StringBuilder sbRs = new StringBuilder();
             var listRq = new DumbRequest();

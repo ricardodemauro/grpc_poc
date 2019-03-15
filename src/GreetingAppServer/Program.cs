@@ -56,7 +56,7 @@ namespace GreetingAppServer
 
             var reply = new HelloReply
             {
-                Message = $"Hi {request.Name}"
+                Message = $"Hello back {request.Name} - My time is {epochTime}"
             };
 
             return Task.FromResult(reply);
